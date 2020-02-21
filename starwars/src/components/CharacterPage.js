@@ -20,16 +20,16 @@ const CharacterPage = () => {
     const [page, setPage] = useState(1);
     const [name, setName] = useState('');
 
-    // useEffect(() => {
-    //     axios   
-    //         .get(`https://swapi.co/api/people/?search=${name}`)
-    //         .then(res => {
-    //             console.log(res.data)
-    //         })
-    //         .catch(err => {
-    //             console.log(err)
-    //         })
-    // }, [name])
+    useEffect(() => {
+        axios   
+            .get(`https://swapi.co/api/people/?search=${name}`)
+            .then(res => {
+                console.log(res.data)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }, [name])
 
   
 
