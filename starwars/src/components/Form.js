@@ -4,21 +4,9 @@ import axios from 'axios';
 
 const CharacterForm = (props) => {
 
-    // const [name, setName] = useState('');
+    const [name, setName] = useState('');
     const [name1, setName1] = useState('');
- 
-    // useEffect(() => {
-    //     axios   
-    //         .get(`https://swapi.co/api/people/?search=${name}`)
-    //         .then(res => {
-    //             console.log(res.data.results.name);
-    //             setName(res.data.results.name)
-    //         })
-    //         .catch(err => {
-    //             console.log(err);
-    //         });
 
-    // }, [name]);
 
     const changeHandler = (e) => {
         setName1(e.target.value);
@@ -26,8 +14,8 @@ const CharacterForm = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        props.setName(name1);
-        console.log(props.name);
+        setName(name1);
+        console.log(name);
 
     }
 

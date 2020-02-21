@@ -18,7 +18,6 @@ const CharacterPage = () => {
     
     const [data, setData] = useState([]);
     const [page, setPage] = useState(1);
-    const [name, setName] = useState('');
 
     useEffect(() => {
         axios
@@ -30,15 +29,7 @@ const CharacterPage = () => {
             .catch(err => {
                 console.log(err)
             })
-            .get(`https://swapi.co/api/people/?search=${name}`)
-            .then(res => {
-                console.log(res.data.results);
-
-            })
-            .catch(err => {
-                console.log(err)
-            })
-    }, [page, name])
+    }, [page])
 
    
 
@@ -55,7 +46,7 @@ const CharacterPage = () => {
                 <PageButton page = {page} setPage={setPage} />
             </ButtonContainer>  
         </Row>
-        <Form name={name} setName={setName}/>
+        <Form />
         
     </Container>
 )
