@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const CharacterForm = (props) => {
 
-    const [name, setName] = useState('');
+    
     const [name1, setName1] = useState('');
 
 
@@ -14,8 +14,8 @@ const CharacterForm = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setName(name1);
-        console.log(name);
+        props.setName(name1);
+        console.log(props.name);
 
     }
 

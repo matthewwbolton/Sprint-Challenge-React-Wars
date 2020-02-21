@@ -18,6 +18,7 @@ const CharacterPage = () => {
     
     const [data, setData] = useState([]);
     const [page, setPage] = useState(1);
+    const [name, setName] = useState('');
 
     useEffect(() => {
         axios
@@ -29,13 +30,9 @@ const CharacterPage = () => {
             .catch(err => {
                 console.log(err)
             })
-    }, [page])
+    }, [page, name])
 
-   
-
-
-
-
+  
     return(
     <Container>
         <Row>
@@ -46,8 +43,7 @@ const CharacterPage = () => {
                 <PageButton page = {page} setPage={setPage} />
             </ButtonContainer>  
         </Row>
-        <Form />
-        
+        <Form name={name} setName={setName}/>
     </Container>
 )
 
