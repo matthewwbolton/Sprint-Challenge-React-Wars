@@ -20,6 +20,8 @@ const CharacterPage = () => {
     const [page, setPage] = useState(1);
     const [name, setName] = useState('');
 
+  
+
     useEffect(() => {
         axios
             .get(`https://swapi.co/api/people/?page=${page}`)
@@ -30,7 +32,7 @@ const CharacterPage = () => {
             .catch(err => {
                 console.log(err)
             })
-    }, [page, name])
+    }, [page])
 
   
     return(
