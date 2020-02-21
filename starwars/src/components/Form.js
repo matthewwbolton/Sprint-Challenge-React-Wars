@@ -1,6 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import axios from 'axios';
+import styled from 'styled-components';
+
+const NewInput = styled(Input)`
+  width: 100%;
+`;
+
+const NewCol = styled(Col)`
+  width: 100% !important;
+`;
+
+const NewFormGroup = styled(FormGroup)`
+  width: 300px;
+`;
+
 
 const CharacterForm = (props) => {
 
@@ -13,7 +26,7 @@ const CharacterForm = (props) => {
 };
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         props.setName(name1);
         console.log(props.name);
 
@@ -24,12 +37,12 @@ const CharacterForm = (props) => {
   return (
     <Form>
       <Row form>
-        <Col md={6}>
-          <FormGroup>
-            <Label for="exampleEmail">Name:</Label>
-            <Input onChange={(e) => changeHandler(e)} type="text" name="email" id="exampleEmail" placeholder="Name" />
-          </FormGroup>
-        </Col>
+        <NewCol md={6}>
+          <NewFormGroup>
+            <Label for="exampleEmail"></Label>
+            <NewInput onChange={(e) => changeHandler(e)} type="text" name="email" id="exampleEmail" placeholder='Star Wars Character Name' />
+          </NewFormGroup>
+        </NewCol>
       </Row>
       <Button onClick={(e) => handleSubmit(e)}>SEARCH</Button>
     </Form>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import CharacterCard from './CharacterCard';
 import axios from 'axios';
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row } from 'reactstrap';
 import PageButton from './Button';
 import styled from 'styled-components';
 import Form from './Form';
@@ -12,6 +12,13 @@ const ButtonContainer = styled.div`
     justify-content: space-evenly;
     align-items: center;
 `;
+const FormContainer = styled.div`
+    display: flex;
+    justify-content: center;
+    
+`;
+
+
 
 
 const CharacterPage = () => {
@@ -25,6 +32,7 @@ const CharacterPage = () => {
             .get(`https://swapi.co/api/people/?search=${name}`)
             .then(res => {
                 console.log(res.data)
+                setData(res.data.results)
             })
             .catch(err => {
                 console.log(err)
@@ -48,6 +56,9 @@ const CharacterPage = () => {
   
     return(
     <Container>
+        <FormContainer>
+            <Form name={name} setName={setName}/>
+        </FormContainer>
         <Row>
             {data.map((character, index) => {
                 return <CharacterCard  key = {index} character = {character} />
@@ -56,7 +67,7 @@ const CharacterPage = () => {
                 <PageButton page = {page} setPage={setPage} />
             </ButtonContainer>  
         </Row>
-        <Form name={name} setName={setName}/>
+        
     </Container>
 )
 
